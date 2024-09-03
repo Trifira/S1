@@ -1,19 +1,23 @@
 
 const _length = 5;
 const _widht = 3;
-const _perimeter = 1;
-console.log(_length * _widht); //write a code to find area of rectangle no.1
+const _perimeter = 2;
+console.log(_length * _widht); 
+//write a code to find area of rectangle no.1
 
-console.log(_length * _widht + _perimeter);//write a code to find perimeter of rectangle no.2
+console.log(_perimeter * (_length + _widht));
+//write a code to find perimeter of rectangle no.2
 
 // no 3 find diameter, circumference and area of a circle
 
-let _radius = 5;
+let _radius : number = 5;
 let _diameter = _radius*2 ;
-let _lingkaran: number = 1 / 4 * 3.14159 * _diameter**2 ;
-let _areaLingkaran: number = 2 * 3.14159 *_radius;
+let pi = Math.PI;
+let _lingkaran: number = 1 / 4 * pi * _diameter**2 ;
+let _areaLingkaran: number = 2 * pi *_radius;
 
-console.log("Diameter: " + _diameter + " | " 
+console.log
+    ("Diameter: " + _diameter + " | " 
     +"area lingkaran: "+_areaLingkaran.toString()+" | " 
     +"lingkaran: "+ _lingkaran.toString() ); 
 
@@ -35,22 +39,19 @@ console.log("Diameter: " + _diameter + " | "
 let totalhari: number = 400; // Ganti angka ini dengan jumlah hari yang ingin Anda konversi
 
 // Menghitung jumlah tahun
-let tahun: number = (totalhari - (totalhari % 365)) / 365;
-
-// Menghitung sisa hari setelah tahun
-let sisahariTahun: number = totalhari % 365;
+let tahun: number = Math.floor((totalhari / 365));
 
 // Menghitung jumlah bulan
-let bulan: number = (sisahariTahun - (sisahariTahun % 30)) / 30;
+let bulan: number = Math.floor((totalhari % 365 / 30));
 
-// Menghitung sisa hari setelah bulan
-let sisahariBulan: number = sisahariTahun % 30;
+// Menghitung jumlah hari
+let hari: number = Math.floor((totalhari % 365) % 30);
 
 // Menampilkan hasil
-console.log("Jumlah hari: "+ totalhari);
+console.log("Jumlah total hari: "+ totalhari);
 console.log("Jumlah tahun: "+ tahun);
 console.log("Jumlah bulan: "+ bulan);
-console.log("Jumlah hari: "+ sisahariBulan);
+console.log("Jumlah hari: "+ hari);
 
 //no 6 Write a code to get difference between dates in days.
 
@@ -66,14 +67,14 @@ let waktu2: number = tanggal2.getTime();
 let milidetik: number = waktu2 - waktu1;
 
 // Mengonversi selisih milidetik menjadi hari
-let _hari: number = 24 * 60 * 60 * 1000; // 1 hari dalam milidetik
+let _hari: number = 24 * 3600 * 1000; // 1 hari dalam milidetik
 let selisihDetik: number = milidetik / _hari ;
 
-// Menggunakan kondisional untuk memastikan perbedaan selalu positif
-let selisihHari: number = selisihDetik >= 0 ? selisihDetik : -selisihDetik;
+let perbedaanDate = (( tanggal2.getTime() - tanggal1.getTime())/ _hari );
 
 // Menampilkan hasil
-console.log("Perbedaan antara " + 
+console.log(
+    "Perbedaan antara " + 
     tanggal1.toDateString() + " dan "+ 
     tanggal2.toDateString() + " adalah "+
-    selisihHari + " hari.");
+    perbedaanDate + " hari.");
